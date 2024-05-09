@@ -1,4 +1,4 @@
-FROM node:iron-alpine
+FROM node:latest
 
 WORKDIR /usr/src/api
 
@@ -6,8 +6,9 @@ COPY . .
 
 COPY ./.env.production ./.env 
 
-RUN npm install --quiet --no-optional --no-fund --loglevel=error && \
-    npm run build
+RUN npm install --quiet --no-optional --no-fund --loglevel=error
+
+RUN npm run build
 
 EXPOSE 3000
 
